@@ -2,7 +2,7 @@
 
 namespace Omnipay\PayFast\Message;
 
-use Omnipay\TestCase;
+use Omnipay\Tests\TestCase;
 
 class PurchaseResponseTest extends TestCase
 {

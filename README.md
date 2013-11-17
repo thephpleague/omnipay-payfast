@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/omnipay/payfast/version.png)](https://packagist.org/packages/omnipay/payfast)
 [![Total Downloads](https://poser.pugx.org/omnipay/payfast/d/total.png)](https://packagist.org/packages/omnipay/payfast)
 
-[Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gatpayfast payment
+[Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements PayFast support for Omnipay.
 
 ## Installation

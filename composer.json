@@ -23,7 +23,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Omnipay\\PayFast\\" : "src/" }
+        "psr-4": { "Omnipay\\PayFast\\" : "src/" }
     },
     "require": {
         "omnipay/common": "~2.0"

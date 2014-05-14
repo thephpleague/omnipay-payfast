@@ -222,9 +222,7 @@ class PurchaseRequest extends AbstractRequest
         $fields = array();
 
         // specific order required by PayFast
-        foreach (array('merchant_id', 'merchant_key', 'return_url', 'cancel_url', 'notify_url',
-            'name_first', 'name_last', 'email_address', 'm_payment_id', 'amount', 'item_name',
-            'item_description', 'email_confirmation', 'confirmation_address') as $key) {
+        foreach ($data as $key => $value) {
             if (!empty($data[$key])) {
                 $fields[$key] = $data[$key];
             }

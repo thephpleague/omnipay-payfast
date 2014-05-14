@@ -42,6 +42,136 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('pdtKey', $value);
     }
 
+    public function getMPaymentId()
+    {
+        return $this->getParameter('mPaymentId');
+    }
+
+    public function setMPaymentId($value)
+    {
+        return $this->setParameter('mPaymentId', $value);
+    }
+
+    public function getCustomStr1()
+    {
+        return $this->getParameter('customStr1');
+    }
+
+    public function setCustomStr1($value)
+    {
+        return $this->setParameter('customStr1', $value);
+    }
+
+    public function getCustomStr2()
+    {
+        return $this->getParameter('customStr2');
+    }
+
+    public function setCustomStr2($value)
+    {
+        return $this->setParameter('customStr2', $value);
+    }
+
+    public function getCustomStr3()
+    {
+        return $this->getParameter('customStr3');
+    }
+
+    public function setCustomStr3($value)
+    {
+        return $this->setParameter('customStr3', $value);
+    }
+
+    public function getCustomStr4()
+    {
+        return $this->getParameter('customStr4');
+    }
+
+    public function setCustomStr4($value)
+    {
+        return $this->setParameter('customStr4', $value);
+    }
+
+    public function getCustomStr5()
+    {
+        return $this->getParameter('customStr5');
+    }
+
+    public function setCustomStr5($value)
+    {
+        return $this->setParameter('customStr5', $value);
+    }
+
+    public function getCustomInt1()
+    {
+        return $this->getParameter('customInt1');
+    }
+
+    public function setCustomInt1($value)
+    {
+        return $this->setParameter('customInt1', $value);
+    }
+
+    public function getCustomInt2()
+    {
+        return $this->getParameter('customInt2');
+    }
+
+    public function setCustomInt2($value)
+    {
+        return $this->setParameter('customInt2', $value);
+    }
+
+    public function getCustomInt3()
+    {
+        return $this->getParameter('customInt3');
+    }
+
+    public function setCustomInt3($value)
+    {
+        return $this->setParameter('customInt3', $value);
+    }
+
+    public function getCustomInt4()
+    {
+        return $this->getParameter('customInt4');
+    }
+
+    public function setCustomInt4($value)
+    {
+        return $this->setParameter('customInt4', $value);
+    }
+
+    public function getCustomInt5()
+    {
+        return $this->getParameter('customInt5');
+    }
+
+    public function setCustomInt5($value)
+    {
+        return $this->setParameter('customInt5', $value);
+    }
+
+    public function getEmailConfirmation()
+    {
+        return $this->getParameter('emailConfirmation');
+    }
+
+    public function setEmailConfirmation($value)
+    {
+        return $this->setParameter('emailConfirmation', $value);
+    }
+
+    public function getConfirmationAddress()
+    {
+        return $this->getParameter('confirmationAddress');
+    }
+
+    public function setConfirmationAddress($value)
+    {
+        return $this->setParameter('confirmationAddress', $value);
+    }
+
     public function getData()
     {
         $this->validate('amount', 'description');

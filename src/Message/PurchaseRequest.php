@@ -31,7 +31,7 @@ class PurchaseRequest extends AbstractRequest
     {
         return $this->setParameter('merchantKey', $value);
     }
-    
+
     public function getReturnUrl()
     {
         return $this->getParameter('returnUrl');
@@ -41,7 +41,7 @@ class PurchaseRequest extends AbstractRequest
     {
         return $this->setParameter('returnUrl', $value);
     }
-    
+
     public function getCancelUrl()
     {
         return $this->getParameter('cancelUrl');
@@ -51,7 +51,7 @@ class PurchaseRequest extends AbstractRequest
     {
         return $this->setParameter('cancelUrl', $value);
     }
-    
+
     public function getNotifyUrl()
     {
         return $this->getParameter('notifyUrl');
@@ -206,45 +206,45 @@ class PurchaseRequest extends AbstractRequest
     {
         $this->validate('amount', 'description');
 
-	$data = array();
+        $data = array();
 
         // Merchant Details
-	$data['merchant_id'] = $this->getMerchantId();
-	$data['merchant_key'] = $this->getMerchantKey();
-	$data['return_url'] = $this->getReturnUrl();
-	$data['cancel_url'] = $this->getCancelUrl();
-	$data['notify_url'] = $this->getNotifyUrl();
+        $data['merchant_id'] = $this->getMerchantId();
+        $data['merchant_key'] = $this->getMerchantKey();
+        $data['return_url'] = $this->getReturnUrl();
+        $data['cancel_url'] = $this->getCancelUrl();
+        $data['notify_url'] = $this->getNotifyUrl();
 
         // Payer Details (optional)
-	if ($this->getCard()) {
+        if ($this->getCard()) {
             $data['name_first'] = $this->getCard()->getFirstName();
             $data['name_last'] = $this->getCard()->getLastName();
             $data['email_address'] = $this->getCard()->getEmail();
         }
 
-	// Transaction Details
-	$data['m_payment_id'] = $this->getMPaymentId(); // 100 char
-	$data['amount'] = $this->getAmount();
-	$data['item_name'] = $this->getDescription(); // 100 char
-	$data['item_description'] = ""; // 255 char
-	$data['custom_str1'] = $this->getCustomStr1(); // 255 char
-	$data['custom_str2'] = $this->getCustomStr2(); // 255 char
-	$data['custom_str3'] = $this->getCustomStr3(); // 255 char
-	$data['custom_str4'] = $this->getCustomStr4(); // 255 char
-	$data['custom_str5'] = $this->getCustomStr5(); // 255 char
-	$data['custom_int1'] = $this->getCustomInt1();
-	$data['custom_int2'] = $this->getCustomInt2();
-	$data['custom_int3'] = $this->getCustomInt3();
-	$data['custom_int4'] = $this->getCustomInt4();
-	$data['custom_int5'] = $this->getCustomInt5();
+        // Transaction Details
+        $data['m_payment_id'] = $this->getMPaymentId(); // 100 char
+        $data['amount'] = $this->getAmount();
+        $data['item_name'] = $this->getDescription(); // 100 char
+        $data['item_description'] = ""; // 255 char
+        $data['custom_str1'] = $this->getCustomStr1(); // 255 char
+        $data['custom_str2'] = $this->getCustomStr2(); // 255 char
+        $data['custom_str3'] = $this->getCustomStr3(); // 255 char
+        $data['custom_str4'] = $this->getCustomStr4(); // 255 char
+        $data['custom_str5'] = $this->getCustomStr5(); // 255 char
+        $data['custom_int1'] = $this->getCustomInt1();
+        $data['custom_int2'] = $this->getCustomInt2();
+        $data['custom_int3'] = $this->getCustomInt3();
+        $data['custom_int4'] = $this->getCustomInt4();
+        $data['custom_int5'] = $this->getCustomInt5();
 
-	// Transaction Options(optional)
-	$data['email_confirmation'] = $this->getEmailConfirmation();
-	$data['confirmation_address'] = $this->getConfirmationAddress(); // 100 char
+        // Transaction Options(optional)
+        $data['email_confirmation'] = $this->getEmailConfirmation();
+        $data['confirmation_address'] = $this->getConfirmationAddress(); // 100 char
 
         $data['signature'] = $this->generateSignature($data);
 
-	return $data;
+        return $data;
     }
 
     protected function generateSignature($data)
@@ -263,7 +263,7 @@ class PurchaseRequest extends AbstractRequest
 
     public function sendData($data)
     {
-        return $this->response = new PurchaseResponse($this, $data, $this->getEndpoint().'/process');
+        return $this->response = new PurchaseResponse($this, $data, $this->getEndpoint() . '/process');
     }
 
     public function getEndpoint()

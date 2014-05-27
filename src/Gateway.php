@@ -24,8 +24,18 @@ class Gateway extends AbstractGateway
             'merchantId' => '',
             'merchantKey' => '',
             'pdtKey' => '',
-            'testMode' => false,
+            'testMode' => false
         );
+    }
+
+    public function setTestMode($value)
+    {
+        return $this->setParameter('testMode', $value);
+    }
+
+    public function getTestMode()
+    {
+        return $this->getParameter('testMode');
     }
 
     public function purchase(array $parameters = array())

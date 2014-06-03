@@ -31,7 +31,7 @@ class PurchaseRequestTest extends TestCase
 
     public function testPurchase()
     {
-        $this->request->setAmount('12.00')->setDescription('Test Product');
+        $this->request->setAmount('12.00')->setItemDescription('Test Product');
 
         $response = $this->request->send();
 

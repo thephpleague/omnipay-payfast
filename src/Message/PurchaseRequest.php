@@ -82,6 +82,16 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('mPaymentId', $value);
     }
 
+    public function getItemDescription()
+    {
+        return $this->getParameter('item_description');
+    }
+
+    public function setItemDescription($value)
+    {
+        return $this->setParameter('item_description', $value);
+    }
+
     public function getCustomStr1()
     {
         return $this->getParameter('customStr1');
@@ -204,7 +214,7 @@ class PurchaseRequest extends AbstractRequest
 
     public function getData()
     {
-        $this->validate('amount', 'description');
+        $this->validate('amount', 'item_description');
 
         $data = array();
 
@@ -225,7 +235,7 @@ class PurchaseRequest extends AbstractRequest
         // Transaction Details
         $data['m_payment_id'] = $this->getMPaymentId(); // 100 char
         $data['amount'] = $this->getAmount();
-        $data['item_name'] = $this->getDescription(); // 100 char
+        $data['item_name'] = $this->getItemDescription(); // 100 char
         $data['item_description'] = ""; // 255 char
         $data['custom_str1'] = $this->getCustomStr1(); // 255 char
         $data['custom_str2'] = $this->getCustomStr2(); // 255 char

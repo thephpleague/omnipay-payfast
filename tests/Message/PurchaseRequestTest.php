@@ -11,24 +11,6 @@ class PurchaseRequestTest extends TestCase
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
     }
 
-    public function testSignature()
-    {
-        $this->request->initialize(
-            array(
-                'amount' => '12.00',
-                'description' => 'Test Product',
-                'transactionId' => 123,
-                'merchantId' => 'foo',
-                'merchantKey' => 'bar',
-                'returnUrl' => 'https://www.example.com/return',
-                'cancelUrl' => 'https://www.example.com/cancel',
-            )
-        );
-
-        $data = $this->request->getData();
-        $this->assertSame('ab86df60906e97d3bfb362aff26fd9e6', $data['signature']);
-    }
-
     public function testPurchase()
     {
         $this->request->setAmount('12.00')->setItemDescription('Test Product');

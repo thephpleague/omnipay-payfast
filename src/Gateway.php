@@ -28,16 +28,6 @@ class Gateway extends AbstractGateway
         );
     }
 
-    public function setTestMode($value)
-    {
-        return $this->setParameter('testMode', $value);
-    }
-
-    public function getTestMode()
-    {
-        return $this->getParameter('testMode');
-    }
-
     public function getMerchantId()
     {
         return $this->getParameter('merchantId');

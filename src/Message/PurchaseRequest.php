@@ -32,36 +32,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('merchantKey', $value);
     }
 
-    public function getReturnUrl()
-    {
-        return $this->getParameter('returnUrl');
-    }
-
-    public function setReturnUrl($value)
-    {
-        return $this->setParameter('returnUrl', $value);
-    }
-
-    public function getCancelUrl()
-    {
-        return $this->getParameter('cancelUrl');
-    }
-
-    public function setCancelUrl($value)
-    {
-        return $this->setParameter('cancelUrl', $value);
-    }
-
-    public function getNotifyUrl()
-    {
-        return $this->getParameter('notifyUrl');
-    }
-
-    public function setNotifyUrl($value)
-    {
-        return $this->setParameter('notifyUrl', $value);
-    }
-
     public function getPdtKey()
     {
         return $this->getParameter('pdtKey');

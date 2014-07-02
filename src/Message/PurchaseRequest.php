@@ -207,16 +207,16 @@ class PurchaseRequest extends AbstractRequest
         $data['amount'] = $this->getAmount();
         $data['item_name'] = $this->getItemDescription(); // 100 char
         $data['item_description'] = ""; // 255 char
-        $data['custom_str1'] = $this->getCustomStr1(); // 255 char
-        $data['custom_str2'] = $this->getCustomStr2(); // 255 char
-        $data['custom_str3'] = $this->getCustomStr3(); // 255 char
-        $data['custom_str4'] = $this->getCustomStr4(); // 255 char
-        $data['custom_str5'] = $this->getCustomStr5(); // 255 char
         $data['custom_int1'] = $this->getCustomInt1();
         $data['custom_int2'] = $this->getCustomInt2();
         $data['custom_int3'] = $this->getCustomInt3();
         $data['custom_int4'] = $this->getCustomInt4();
         $data['custom_int5'] = $this->getCustomInt5();
+        $data['custom_str1'] = $this->getCustomStr1(); // 255 char
+        $data['custom_str2'] = $this->getCustomStr2(); // 255 char
+        $data['custom_str3'] = $this->getCustomStr3(); // 255 char
+        $data['custom_str4'] = $this->getCustomStr4(); // 255 char
+        $data['custom_str5'] = $this->getCustomStr5(); // 255 char
 
         // Transaction Options(optional)
         $data['email_confirmation'] = $this->getEmailConfirmation();

@@ -18,7 +18,11 @@ class CompletePurchaseItnResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        return $this->data['payment_status'] === 'COMPLETE';
+        if ($this->isValid() && isset($this->data['payment_status'])) {
+            return $this->data['payment_status'] === 'COMPLETE';
+        } else {
+            return false;
+        }
     }
 
     public function isValid() {

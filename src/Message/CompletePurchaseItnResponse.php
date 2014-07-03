@@ -18,7 +18,11 @@ class CompletePurchaseItnResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        return 'SUCCESS' === $this->status;
+        if('SUCCESS' === $this->status || 'VALID' === $this->status) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getTransactionReference()

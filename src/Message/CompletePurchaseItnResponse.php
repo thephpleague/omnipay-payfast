@@ -14,7 +14,7 @@ class CompletePurchaseItnResponse extends AbstractResponse
      * @param RequestInterface $request
      * @param $status
      */
-	public function __construct(RequestInterface $request, $data, $status)
+    public function __construct(RequestInterface $request, $data, $status)
     {
         parent::__construct($request, $data);
         $this->status = $status;

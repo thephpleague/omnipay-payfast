@@ -10,7 +10,7 @@
         "payfast",
         "payment"
     ],
-    "homepage": "https://github.com/omnipay/payfast",
+    "homepage": "https://github.com/thephpleague/omnipay-payfast",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
         },
         {
             "name": "Omnipay Contributors",
-            "homepage": "https://github.com/omnipay/payfast/contributors"
+            "homepage": "https://github.com/thephpleague/omnipay-payfast/contributors"
         }
     ],
     "autoload": {

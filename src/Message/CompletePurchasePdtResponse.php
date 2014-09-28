@@ -18,7 +18,7 @@ class CompletePurchasePdtResponse extends AbstractResponse
         $this->data = array();
 
         // parse ridiculous response format
-        $lines = explode('\n', $data);
+        $lines = explode("\n", $data);
         $this->status = $lines[0];
 
         foreach ($lines as $line) {

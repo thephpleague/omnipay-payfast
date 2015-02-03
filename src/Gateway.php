@@ -24,7 +24,7 @@ class Gateway extends AbstractGateway
             'merchantId' => '',
             'merchantKey' => '',
             'pdtKey' => '',
-            'testMode' => false,
+            'testMode' => false
         );
     }
 

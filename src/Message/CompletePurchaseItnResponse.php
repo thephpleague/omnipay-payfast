@@ -10,6 +10,10 @@ use Omnipay\Common\Message\RequestInterface;
  */
 class CompletePurchaseItnResponse extends AbstractResponse
 {
+    /**
+     * @param RequestInterface $request
+     * @param $status
+     */
     public function __construct(RequestInterface $request, $data, $status)
     {
         parent::__construct($request, $data);
@@ -18,6 +22,14 @@ class CompletePurchaseItnResponse extends AbstractResponse
 
     public function isSuccessful()
     {
+        if ($this->isValid() && isset($this->data['payment_status'])) {
+            return $this->data['payment_status'] === 'COMPLETE';
+        } else {
+            return false;
+        }
+    }
+
+    public function isValid() {
         return 'VALID' === $this->status;
     }
 

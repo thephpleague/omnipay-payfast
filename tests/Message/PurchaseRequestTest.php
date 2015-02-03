@@ -13,25 +13,50 @@ class PurchaseRequestTest extends TestCase
 
     public function testSignature()
     {
-        $this->request->initialize(
-            array(
-                'amount' => '12.00',
-                'description' => 'Test Product',
-                'transactionId' => 123,
-                'merchantId' => 'foo',
-                'merchantKey' => 'bar',
-                'returnUrl' => 'https://www.example.com/return',
-                'cancelUrl' => 'https://www.example.com/cancel',
-            )
+        $data = array(
+            'amount' => '12.00',
+            'item_description' => 'Test Product',
+            'm_payment_id' => 123,
+            'merchant_id' => 'foo',
+            'merchant_key' => 'bar',
+            'return_url' => 'https://www.example.com/return',
+            'cancel_url' => 'https://www.example.com/cancel',
         );
 
+        $this->request->initialize($data);
+
         $data = $this->request->getData();
-        $this->assertSame('ab86df60906e97d3bfb362aff26fd9e6', $data['signature']);
+        $this->assertSame($this->generateSignature($data), $data['signature']);
+    }
+
+    protected function generateSignature($data)
+    {
+        // Strip any slashes in data
+        $pfData = [];
+        foreach( $data as $key => $val ) {
+            $pfData[$key] = stripslashes( $val );
+        }
+
+        // Dump the submitted variables and calculate security signature
+        $pfParamString = '';
+        foreach( $pfData as $key => $val ) {
+            if( $key != 'signature' ) {
+                $pfParamString .= $key .'='. urlencode( $val ) .'&';
+            }
+        }
+
+        // Remove the last '&' from the parameter string
+        $pfParamString = substr($pfParamString, 0, -1);
+        $pfTempParamString = $pfParamString;
+
+        $signature = md5( $pfTempParamString );
+
+        return md5( $pfTempParamString );
     }
 
     public function testPurchase()
     {
-        $this->request->setAmount('12.00')->setDescription('Test Product');
+        $this->request->setAmount('12.00')->setItemDescription('Test Product');
 
         $response = $this->request->send();
 

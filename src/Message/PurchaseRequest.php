@@ -52,6 +52,16 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('mPaymentId', $value);
     }
 
+    public function getPassPhrase()
+    {
+        return $this->getParameter('passPhrase');
+    }
+
+    public function setPassPhrase($value)
+    {
+        return $this->setParameter('passPhrase', $value);
+    }
+
     public function getItemDescription()
     {
         return $this->getParameter('item_description');
@@ -229,13 +239,11 @@ class PurchaseRequest extends AbstractRequest
 
     protected function generateSignature($data)
     {
-        // Strip any slashes in data
         $pfData = [];
         foreach( $data as $key => $val ) {
             $pfData[$key] = stripslashes( $val );
         }
 
-        // Dump the submitted variables and calculate security signature
         $pfParamString = '';
         foreach( $pfData as $key => $val ) {
             if( $key != 'signature' ) {
@@ -243,12 +251,10 @@ class PurchaseRequest extends AbstractRequest
             }
         }
 
-        // Remove the last '&' from the parameter string
         $pfParamString = substr($pfParamString, 0, -1);
         $pfTempParamString = $pfParamString;
 
-        // If a passphrase has been set in the PayFast Settings, then it needs to be included in the signature string.
-        $passPhrase = 'XXXXX'; // You need to get this from a constant or stored in your website
+        $passPhrase = $this->getPassPhrase();
         if( !empty( $passPhrase ) )
         {
             $pfTempParamString .= '&passphrase='.urlencode( $passPhrase );

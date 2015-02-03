@@ -229,16 +229,33 @@ class PurchaseRequest extends AbstractRequest
 
     protected function generateSignature($data)
     {
-        $fields = array();
+        // Strip any slashes in data
+        $pfData = [];
+        foreach( $data as $key => $val ) {
+            $pfData[$key] = stripslashes( $val );
+        }
 
-        // specific order required by PayFast
-        foreach ($data as $key => $value) {
-            if (!empty($data[$key])) {
-                $fields[$key] = $data[$key];
+        // Dump the submitted variables and calculate security signature
+        $pfParamString = '';
+        foreach( $pfData as $key => $val ) {
+            if( $key != 'signature' ) {
+                $pfParamString .= $key .'='. urlencode( $val ) .'&';
             }
         }
 
-        return md5(http_build_query($fields));
+        // Remove the last '&' from the parameter string
+        $pfParamString = substr($pfParamString, 0, -1);
+        $pfTempParamString = $pfParamString;
+
+        // If a passphrase has been set in the PayFast Settings, then it needs to be included in the signature string.
+        $passPhrase = 'XXXXX'; // You need to get this from a constant or stored in your website
+        if( !empty( $passPhrase ) )
+        {
+            $pfTempParamString .= '&passphrase='.urlencode( $passPhrase );
+        }
+        $signature = md5( $pfTempParamString );
+
+        return md5( $pfTempParamString );
     }
 
     public function sendData($data)

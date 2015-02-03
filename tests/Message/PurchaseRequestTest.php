@@ -15,12 +15,12 @@ class PurchaseRequestTest extends TestCase
     {
         $data = array(
             'amount' => '12.00',
-            'description' => 'Test Product',
-            'transactionId' => 123,
-            'merchantId' => 'foo',
-            'merchantKey' => 'bar',
-            'returnUrl' => 'https://www.example.com/return',
-            'cancelUrl' => 'https://www.example.com/cancel',
+            'item_description' => 'Test Product',
+            'm_payment_id' => 123,
+            'merchant_id' => 'foo',
+            'merchant_key' => 'bar',
+            'return_url' => 'https://www.example.com/return',
+            'cancel_url' => 'https://www.example.com/cancel',
         );
 
         $this->request->initialize($data);
@@ -49,12 +49,6 @@ class PurchaseRequestTest extends TestCase
         $pfParamString = substr($pfParamString, 0, -1);
         $pfTempParamString = $pfParamString;
 
-        // If a passphrase has been set in the PayFast Settings, then it needs to be included in the signature string.
-        $passPhrase = 'XXXXX'; // You need to get this from a constant or stored in your website
-        if( !empty( $passPhrase ) )
-        {
-            $pfTempParamString .= '&passphrase='.urlencode( $passPhrase );
-        }
         $signature = md5( $pfTempParamString );
 
         return md5( $pfTempParamString );

@@ -1,5 +1,5 @@
 {
-    "name": "omnipay/payfast",
+    "name": "georgeboot/omnipay-payfast",
     "type": "library",
     "description": "PayFast driver for the Omnipay payment processing library",
     "keywords": [

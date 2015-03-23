@@ -10,7 +10,7 @@
         "payfast",
         "payment"
     ],
-    "homepage": "https://github.com/thephpleague/omnipay-payfast",
+    "homepage": "https://github.com/georgeboot/omnipay-payfast",
     "license": "MIT",
     "authors": [
         {
@@ -20,6 +20,10 @@
         {
             "name": "Omnipay Contributors",
             "homepage": "https://github.com/thephpleague/omnipay-payfast/contributors"
+        },
+        {
+          "name": "George Boot",
+          "homepage": "https://entryninja.com"
         }
     ],
     "autoload": {
@@ -30,10 +34,5 @@
     },
     "require-dev": {
         "omnipay/tests": "~2.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }

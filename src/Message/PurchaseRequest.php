@@ -42,6 +42,11 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('pdtKey', $value);
     }
 
+    public function getItnPassphrase()
+    {
+        return \Config::get('laravel-omnipay::gateways.PayFast.itnPassphrase');
+    }
+
     public function getData()
     {
         $this->validate('amount', 'description');
@@ -51,7 +56,7 @@ class PurchaseRequest extends AbstractRequest
         $data['merchant_key'] = $this->getMerchantKey();
         $data['return_url'] = $this->getReturnUrl();
         $data['cancel_url'] = $this->getCancelUrl();
-        $data['notify_url'] = $this->getReturnUrl();
+        $data['notify_url'] = $this->getNotifyUrl();
 
         if ($this->getCard()) {
             $data['name_first'] = $this->getCard()->getFirstName();
@@ -63,7 +68,7 @@ class PurchaseRequest extends AbstractRequest
         $data['amount'] = $this->getAmount();
         $data['item_name'] = $this->getDescription();
 
-        $data['passphrase'] = $this->getParameter('itnPassphrase');
+        $data['passphrase'] = $this->getItnPassphrase();
         $data['signature'] = $this->generateSignature($data);
 
         return $data;

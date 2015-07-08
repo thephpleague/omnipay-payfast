@@ -59,6 +59,11 @@ class Gateway extends AbstractGateway
         return $this->setParameter('pdtKey', $value);
     }
 
+    public function getItnPassphrase()
+    {
+        return \Config::get('laravel-omnipay::gateways.PayFast.itnPassphrase');
+    }
+
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\PayFast\Message\PurchaseRequest', $parameters);

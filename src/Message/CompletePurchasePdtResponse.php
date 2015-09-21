@@ -15,7 +15,7 @@ class CompletePurchasePdtResponse extends AbstractResponse
     public function __construct(RequestInterface $request, $data)
     {
         $this->request = $request;
-        $this->data = array();
+        $this->data = [];
 
         // parse ridiculous response format
         $lines = explode("\n", $data);

@@ -10,16 +10,20 @@
         "payfast",
         "payment"
     ],
-    "homepage": "https://github.com/thephpleague/omnipay-payfast",
+    "homepage": "https://github.com/omnipay/payfast",
     "license": "MIT",
     "authors": [
+        {
+            "name": "George Boot",
+            "email": "george@famboot.nl"
+        },
         {
             "name": "Adrian Macneil",
             "email": "adrian@adrianmacneil.com"
         },
         {
             "name": "Omnipay Contributors",
-            "homepage": "https://github.com/thephpleague/omnipay-payfast/contributors"
+            "homepage": "https://github.com/omnipay/payfast/contributors"
         }
     ],
     "autoload": {
@@ -30,10 +34,5 @@
     },
     "require-dev": {
         "omnipay/tests": "~2.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }

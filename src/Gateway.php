@@ -20,13 +20,13 @@ class Gateway extends AbstractGateway
 
     public function getDefaultParameters()
     {
-        return array(
+        return [
             'merchantId' => '',
             'merchantKey' => '',
             'pdtKey' => '',
             'itnPassphrase' => '',
-            'testMode' => false,
-        );
+            'testMode' => false
+        ];
     }
 
     public function getMerchantId()
@@ -61,15 +61,20 @@ class Gateway extends AbstractGateway
 
     public function getItnPassphrase()
     {
-        return \Config::get('laravel-omnipay::gateways.PayFast.itnPassphrase');
+        return $this->getParameter('itnPassphrase');
     }
 
-    public function purchase(array $parameters = array())
+    public function setItnPassphrase($value)
+    {
+        return $this->setParameter('itnPassphrase', $value);
+    }
+
+    public function purchase(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\PayFast\Message\PurchaseRequest', $parameters);
     }
 
-    public function completePurchase(array $parameters = array())
+    public function completePurchase(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\PayFast\Message\CompletePurchaseRequest', $parameters);
     }

@@ -16,7 +16,7 @@ class CompletePurchaseRequest extends PurchaseRequest
     {
         if ($this->httpRequest->query->get('pt')) {
             // this is a Payment Data Transfer request
-            $data = array();
+            $data = [];
             $data['pt'] = $this->httpRequest->query->get('pt');
             $data['at'] = $this->getPdtKey();
 

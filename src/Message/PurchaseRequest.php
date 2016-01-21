@@ -51,7 +51,7 @@ class PurchaseRequest extends AbstractRequest
         $data['merchant_key'] = $this->getMerchantKey();
         $data['return_url'] = $this->getReturnUrl();
         $data['cancel_url'] = $this->getCancelUrl();
-        $data['notify_url'] = $this->getReturnUrl();
+        $data['notify_url'] = $this->getNotifyUrl();
 
         if ($this->getCard()) {
             $data['name_first'] = $this->getCard()->getFirstName();

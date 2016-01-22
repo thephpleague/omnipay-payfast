@@ -18,7 +18,7 @@ class PurchaseRequestTest extends TestCase
                 'amount' => '12.00',
                 'description' => 'Test Product',
                 'transactionId' => 123,
-                'merchantId' => 'foo',
+                'merchantId' => '123',
                 'merchantKey' => 'bar',
                 'returnUrl' => 'https://www.example.com/return',
                 'cancelUrl' => 'https://www.example.com/cancel',
@@ -26,7 +26,7 @@ class PurchaseRequestTest extends TestCase
         );
 
         $data = $this->request->getData();
-        $this->assertSame('ab86df60906e97d3bfb362aff26fd9e6', $data['signature']);
+        $this->assertSame('032684ceb17276430c4263544fa4cf71', $data['signature']);
     }
 
     public function testPurchase()

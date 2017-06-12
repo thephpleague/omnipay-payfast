@@ -161,26 +161,16 @@ class PurchaseRequest extends AbstractRequest
         $data['m_payment_id'] = $this->getTransactionId();
         $data['amount'] = $this->getAmount();
         $data['item_name'] = $this->getDescription();
-
-        /**
-         *  Custom Ints
-         */
         $data['custom_int1'] = $this->getCustomInt1();
         $data['custom_int2'] = $this->getCustomInt2();
         $data['custom_int3'] = $this->getCustomInt3();
         $data['custom_int4'] = $this->getCustomInt4();
         $data['custom_int5'] = $this->getCustomInt5();
-
-        /**
-         * Cutsom strings
-         */
-
         $data['custom_str1'] = $this->getCustomStr1();
         $data['custom_str2'] = $this->getCustomStr2();
         $data['custom_str3'] = $this->getCustomStr3();
         $data['custom_str4'] = $this->getCustomStr4();
         $data['custom_str5'] = $this->getCustomStr5();
-
         $data['signature'] = $this->generateSignature($data);
 
         return $data;

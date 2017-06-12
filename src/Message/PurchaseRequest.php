@@ -141,7 +141,6 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('customInt5', $value);
     }
 
-
     public function getData()
     {
         $this->validate('amount', 'description');
@@ -183,8 +182,6 @@ class PurchaseRequest extends AbstractRequest
         $data['custom_str5'] = $this->getCustomStr5();
 
         $data['signature'] = $this->generateSignature($data);
-
-
 
         return $data;
     }

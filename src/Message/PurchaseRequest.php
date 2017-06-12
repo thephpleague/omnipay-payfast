@@ -171,6 +171,7 @@ class PurchaseRequest extends AbstractRequest
         $data['custom_str3'] = $this->getCustomStr3();
         $data['custom_str4'] = $this->getCustomStr4();
         $data['custom_str5'] = $this->getCustomStr5();
+
         $data['signature'] = $this->generateSignature($data);
 
         return $data;
@@ -181,33 +182,11 @@ class PurchaseRequest extends AbstractRequest
         $fields = array();
 
         // specific order required by PayFast
-        foreach (
-            array(
-                'merchant_id',
-                'merchant_key',
-                'return_url',
-                'cancel_url',
-                'notify_url',
-                'name_first',
-                'name_last',
-                'email_address',
-                'm_payment_id',
-                'amount',
-                'item_name',
-                'item_description',
-                'email_confirmation',
-                'confirmation_address',
-                'custom_int1',
-                'custom_int2',
-                'custom_int3',
-                'custom_int4',
-                'custom_int5',
-                'custom_str1',
-                'custom_str2',
-                'custom_str3',
-                'custom_str4',
-                'custom_str5',
-            ) as $key) {
+        foreach (array('merchant_id', 'merchant_key', 'return_url', 'cancel_url', 'notify_url', 'name_first',
+                     'name_last', 'email_address', 'm_payment_id', 'amount', 'item_name', 'item_description',
+                     'email_confirmation', 'confirmation_address', 'custom_int1', 'custom_int2', 'custom_int3',
+                     'custom_int4', 'custom_int5', 'custom_str1', 'custom_str2', 'custom_str3', 'custom_str4',
+                     'custom_str5') as $key) {
             if (!empty($data[$key])) {
                 $fields[$key] = $data[$key];
             }

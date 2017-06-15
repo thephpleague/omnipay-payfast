@@ -106,7 +106,7 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('customInt2');
     }
 
-    public function setCustomInt($value)
+    public function setCustomInt2($value)
     {
         return $this->setParameter('customInt2', $value);
     }

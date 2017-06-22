@@ -26,7 +26,7 @@ class PurchaseRequestTest extends TestCase
         );
 
         $data = $this->request->getData();
-        $this->assertSame('ab86df60906e97d3bfb362aff26fd9e6', $data['signature']);
+        $this->assertSame('812a071d77d0120073fd53ee7e45aa9b', $data['signature']);
     }
 
     public function testPurchase()

@@ -29,6 +29,26 @@ class PurchaseRequestTest extends TestCase
         $this->assertSame('812a071d77d0120073fd53ee7e45aa9b', $data['signature']);
     }
 
+    public function testSignatureWithPassphrase()
+    {
+        $this->request->initialize(
+            array(
+                'amount' => '12.00',
+                'description' => 'Test Product',
+                'transactionId' => 123,
+                'merchantId' => '10004554',
+                'merchantKey' => '93zkeljp6j9ao',
+                'returnUrl' => 'https://www.example.com/return',
+                'notifyUrl' => 'https://www.example.com/notify',
+                'cancelUrl' => 'https://www.example.com/cancel',
+            )
+        );
+        $this->request->setPassphrase('ihnKRspB5IZ5bpOzLKbVArpQfiGVuWh');
+
+        $data = $this->request->getData();
+        $this->assertSame('c98b49c6d0914fa8bd13cc8974e2d29e', $data['signature']);
+    }
+
     public function testPurchase()
     {
         $this->request->setAmount('12.00')->setDescription('Test Product');

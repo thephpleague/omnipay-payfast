@@ -32,6 +32,16 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('merchantKey', $value);
     }
 
+    public function getPassphrase()
+    {
+        return $this->getParameter('passphrase');
+    }
+
+    public function setPassphrase($value)
+    {
+        return $this->setParameter('passphrase', $value);
+    }
+
     public function getPdtKey()
     {
         return $this->getParameter('pdtKey');
@@ -172,6 +182,7 @@ class PurchaseRequest extends AbstractRequest
         $data['custom_str4'] = $this->getCustomStr4();
         $data['custom_str5'] = $this->getCustomStr5();
 
+        $data['passphrase'] = $this->getParameter('passphrase');
         $data['signature'] = $this->generateSignature($data);
 
         return $data;
@@ -186,7 +197,7 @@ class PurchaseRequest extends AbstractRequest
                      'name_last', 'email_address', 'm_payment_id', 'amount', 'item_name', 'item_description',
                      'email_confirmation', 'confirmation_address', 'custom_int1', 'custom_int2', 'custom_int3',
                      'custom_int4', 'custom_int5', 'custom_str1', 'custom_str2', 'custom_str3', 'custom_str4',
-                     'custom_str5') as $key) {
+                     'custom_str5', 'passphrase') as $key) {
             if (!empty($data[$key])) {
                 $fields[$key] = $data[$key];
             }

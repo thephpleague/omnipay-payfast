@@ -48,6 +48,16 @@ class Gateway extends AbstractGateway
         return $this->setParameter('merchantKey', $value);
     }
 
+    public function getPassphrase()
+    {
+        return $this->getParameter('passphrase');
+    }
+
+    public function setPassphrase($value)
+    {
+        return $this->setParameter('passphrase', $value);
+    }
+
     public function getPdtKey()
     {
         return $this->getParameter('pdtKey');

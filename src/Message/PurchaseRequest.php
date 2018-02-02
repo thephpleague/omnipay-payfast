@@ -252,12 +252,15 @@ class PurchaseRequest extends AbstractRequest
         /**
          * Subscription billing options.
          */
-        if ($this->getSubscriptionType()) {
+        if (1 == $this->getSubscriptionType()) {
             $data['subscription_type'] = $this->getSubscriptionType();
             $data['billing_date'] = $this->getBillingDate();
             $data['recurring_amount'] = $this->getRecurringAmount();
             $data['frequency'] = $this->getFrequency();
             $data['cycles'] = $this->getCycles();
+        }
+        if (2 == $this->getSubscriptionType()) {
+            $data['subscription_type'] = $this->getSubscriptionType();
         }
 
         $data['passphrase'] = $this->getParameter('passphrase');

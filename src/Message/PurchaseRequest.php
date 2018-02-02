@@ -265,6 +265,7 @@ class PurchaseRequest extends AbstractRequest
 
         $data['passphrase'] = $this->getParameter('passphrase');
         $data['signature'] = $this->generateSignature($data);
+        unset($data['passphrase']);
 
         return $data;
     }

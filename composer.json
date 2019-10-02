@@ -26,10 +26,12 @@
         "psr-4": { "Omnipay\\PayFast\\" : "src/" }
     },
     "require": {
-        "omnipay/common": "~2.0"
+        "omnipay/common": "^3.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "league/omnipay": "^3"
     },
     "require-dev": {
-        "omnipay/tests": "~2.0"
+        "omnipay/tests": "^3.1"
     },
     "extra": {
         "branch-alias": {

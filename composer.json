@@ -31,7 +31,8 @@
         "league/omnipay": "^3"
     },
     "require-dev": {
-        "omnipay/tests": "^3.1"
+        "omnipay/tests": "^3.1",
+        "squizlabs/php_codesniffer": "^3"
     },
     "extra": {
         "branch-alias": {

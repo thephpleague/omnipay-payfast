@@ -40,15 +40,13 @@ class CompletePurchaseRequest extends PurchaseRequest
         if (isset($data['pt'])) {
             // validate PDT
             $url = $this->getEndpoint().'/query/fetch';
-            $httpResponse = $this->httpClient->post($url, null, $data)->send();
-
-            return $this->response = new CompletePurchasePdtResponse($this, $httpResponse->getBody(true));
+            $httpResponse = $this->httpClient->request('post', $url, [], http_build_query($data));
+            return $this->response = new CompletePurchasePdtResponse($this, $httpResponse->getBody()->getContents());
         } else {
             // validate ITN
             $url = $this->getEndpoint().'/query/validate';
-            $httpResponse = $this->httpClient->post($url, null, $data)->send();
-            $status = $httpResponse->getBody(true);
-
+            $httpResponse = $this->httpClient->request('post', $url, [], http_build_query($data));
+            $status = $httpResponse->getBody()->getContents();
             return $this->response = new CompletePurchaseItnResponse($this, $data, $status);
         }
     }

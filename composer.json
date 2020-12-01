@@ -27,7 +27,6 @@
     },
     "require": {
         "omnipay/common": "^3.0",
-        "guzzlehttp/guzzle": "^6.3",
         "league/omnipay": "^3"
     },
     "require-dev": {
